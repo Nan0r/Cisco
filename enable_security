@@ -1,16 +1,14 @@
 Router> enable
 Router# : config t
+Router(config)# : enable secret P@ssw0rd
 Router(config)# : line console 0
 Router(config-line)# : password P@ssw0rd
 Router(config-line)# : login
-exit
 Router(config)# : line aux 0
 Router(config-line)# : password P@ssw0rd
 Router(config-line)# : login
-exit
 Router(config)# : line vty 0 4
 Router(config-line)# : password P@ssw0rd
 Router(config-line)# : login
-exit
-Router(config)# : enable secret P@ssw0rd
+write
 exit
