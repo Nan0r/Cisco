@@ -1,7 +1,8 @@
-enable
-config t
+en
+conf t
 show startup-config
 show running-config
 copy show running-config show startup-config
-write
+exit
+wr
 exit
