@@ -1,8 +1,0 @@
-flash_init
-load_helper
-dir flash:
-rename flash:config.text flash:config.old
-copy flash:config.text xmodem:config.old
-format flash:
-copy xmodem:c****-ipbase-mz.122-35.SE5.bin flash:c****-ipbase-mz.122-35.SE5.bin
-boot flash:c****-ipbase-mz.122-35.SE5.bin
