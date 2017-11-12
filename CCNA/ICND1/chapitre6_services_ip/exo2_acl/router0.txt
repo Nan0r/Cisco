@@ -1,0 +1,49 @@
+en
+conf t
+hostname Router0
+interface FastEthernet 0/0
+ip address 192.168.2.1 255.255.255.0
+no shutdown
+exit
+interface FastEthernet 1/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+interface FastEthernet 1/1
+ip address 192.168.3.1 255.255.255.0
+no shutdown
+exit
+ip dhcp pool clienta
+network 192.168.2.0 255.255.255.0
+lease 0 16 0
+default-router 192.168.2.1
+domain-name clienta.local 
+exit
+ip dhcp pool clientb
+network 192.168.3.0 255.255.255.0
+lease 0 16 0
+default-router 192.168.3.1
+domain-name clientb.local 
+exit
+router ospf 1
+network 192.168.0.0 0.0.255.255 area 0
+exit
+access-list 1 remark interdire_client_a
+access-list 1 deny 192.168.2.0 0.0.0.255
+access-list 1 permit any
+interface FastEthernet 1/0
+ip access-group 1 out
+exit
+ip access-list extended Servers
+deny tcp 192.168.2.0 0.0.0.255 192.168.1.0 0.0.0.255  eq 80
+permit icmp any any 
+permit ip any any
+exit
+interface FastEthernet 1/0
+no ip access-group 1 out
+ip access-group Servers out 
+exit
+exit
+wr
+
+

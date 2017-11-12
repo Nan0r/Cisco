@@ -1,0 +1,7 @@
+en
+conf t
+hostname Switch2
+exit
+wr
+
+
