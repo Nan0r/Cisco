@@ -1,0 +1,8 @@
+en
+passwd
+conf t
+hostname Router1
+ip domain-name domain.tld
+exit
+wr
+exit

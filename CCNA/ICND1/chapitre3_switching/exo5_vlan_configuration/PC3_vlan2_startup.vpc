@@ -1,0 +1,2 @@
+set pcname PC3_vlan2
+ip 192.168.1.11/24
