@@ -1,0 +1,26 @@
+en 
+conf t
+hostname NAT
+interface Serial 1/0
+ip address 80.80.80.2 255.255.255.252
+no shutdown
+exit
+interface FastEthernet 0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+interface FastEthernet 0/0
+ip nat inside
+exit
+interface Serial 1/0
+ip nat outside
+exit
+ip route 0.0.0.0 0.0.0.0 80.80.80.1
+ip nat pool POOL-NAT-LAN1 201.50.9.1 201.50.9.5 netmask 255.255.255.240
+access-list 1 deny 192.168.1.10
+access-list 1 permit 192.168.1.0 0.0.0.255
+ip nat inside source list 1 pool POOL-NAT-LAN1
+exit
+wr
+
+

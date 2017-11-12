@@ -1,0 +1,13 @@
+en 
+clock set 08:14:00 11 sep 2001
+conf t
+hostname NTPSRV
+interface FastEthernet 0/0
+ip address 192.168.1.10 255.255.255.0
+no shutdown
+exit
+ntp master 3
+exit
+wr
+
+

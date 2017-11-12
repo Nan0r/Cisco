@@ -1,0 +1,7 @@
+en
+conf t
+hostname Switch0
+exit
+wr
+
+

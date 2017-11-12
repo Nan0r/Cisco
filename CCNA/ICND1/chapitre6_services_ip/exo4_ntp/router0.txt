@@ -1,0 +1,12 @@
+en 
+conf t
+hostname Router0
+interface FastEthernet 0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+ntp server 192.168.1.10 version 4
+exit
+wr
+
+
